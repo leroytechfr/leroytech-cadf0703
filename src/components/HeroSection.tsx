@@ -1,4 +1,4 @@
-import { ArrowRight, Cpu, Zap } from "lucide-react";
+import { ArrowRight, Cpu, Zap, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -12,76 +12,94 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(210_100%_50%_/_0.1)_0%,_transparent_50%)]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(210_100%_50%_/_0.15)_0%,_transparent_50%)]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
       
-      {/* Grid Pattern */}
+      {/* Animated Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundSize: '80px 80px'
         }}
       />
 
+      {/* Floating elements */}
+      <div className="absolute top-1/4 left-10 w-20 h-20 bg-primary/10 rounded-full blur-2xl animate-float" />
+      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "2s" }} />
+
       <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-in backdrop-blur-sm">
             <Cpu className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Spécialiste PC sur mesure</span>
+            <span className="text-sm font-semibold text-primary tracking-wide">Spécialiste PC sur mesure depuis 2020</span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             Performance.{" "}
             <span className="gradient-text">Fiabilité.</span>
             <br />
-            Sur mesure.
+            <span className="text-primary">Sur mesure.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-fade-in leading-relaxed" style={{ animationDelay: "0.2s" }}>
             Expert en montage PC sur mesure et optimisation système. 
             Des machines taillées pour vos besoins, des performances à la hauteur de vos ambitions.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <Button
               size="lg"
               onClick={scrollToContact}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg glow-effect group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 text-lg font-semibold glow-effect group rounded-xl"
             >
-              Demander un devis
+              Demander un devis gratuit
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-border hover:bg-muted px-8 py-6 text-lg"
+              className="border-border hover:bg-muted hover:border-primary/30 px-10 py-7 text-lg rounded-xl"
             >
               Découvrir nos services
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-border animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">Sur mesure</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 text-3xl md:text-4xl font-bold text-foreground mb-2">
-                <Zap className="w-8 h-8 text-primary" />
+          {/* Trust Badges */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <Cpu className="w-6 h-6 text-primary" />
               </div>
-              <div className="text-sm text-muted-foreground">Performance optimale</div>
+              <span className="text-2xl md:text-3xl font-bold text-foreground">100%</span>
+              <span className="text-sm text-muted-foreground">Sur mesure</span>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">0</div>
-              <div className="text-sm text-muted-foreground">Compromis</div>
+            <div className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <span className="text-2xl md:text-3xl font-bold text-foreground">+40%</span>
+              <span className="text-sm text-muted-foreground">Performances</span>
+            </div>
+            <div className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <span className="text-2xl md:text-3xl font-bold text-foreground">5 ans</span>
+              <span className="text-sm text-muted-foreground">Garantie</span>
+            </div>
+            <div className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <span className="text-2xl md:text-3xl font-bold text-foreground">48h</span>
+              <span className="text-sm text-muted-foreground">Réponse</span>
             </div>
           </div>
         </div>
@@ -90,7 +108,7 @@ const HeroSection = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
+          <div className="w-1 h-2 bg-primary rounded-full" />
         </div>
       </div>
     </section>

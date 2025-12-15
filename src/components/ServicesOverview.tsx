@@ -1,5 +1,7 @@
-import { Monitor, Settings, ArrowRight } from "lucide-react";
+import { Monitor, Settings, ArrowRight, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 const ServicesOverview = () => {
   const services = [
@@ -8,14 +10,26 @@ const ServicesOverview = () => {
       title: "Montage de PC sur mesure",
       description: "Un PC conçu spécialement pour vous. Gaming, bureautique ou professionnel, nous assemblons la configuration idéale selon vos besoins et votre budget.",
       href: "#montage",
-      features: ["PC Gaming", "PC Bureautique", "PC Professionnel"],
+      features: [
+        "Configuration personnalisée",
+        "Composants premium",
+        "Tests complets inclus",
+        "Livré prêt à l'emploi",
+      ],
+      cta: "Configurer mon PC",
     },
     {
       icon: Settings,
       title: "Optimisation de PC",
       description: "Redonnez vie à votre ordinateur. Nos optimisations logicielles améliorent significativement les performances sans toucher au matériel.",
       href: "#optimisation",
-      features: ["Windows optimisé", "Démarrage rapide", "Performances en jeu"],
+      features: [
+        "Gain de performance immédiat",
+        "Aucune perte de données",
+        "Intervention à distance possible",
+        "Résultats garantis",
+      ],
+      cta: "Booster mon PC",
     },
   ];
 
@@ -32,63 +46,64 @@ const ServicesOverview = () => {
       
       <div className="container-custom relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider mb-4 block">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-20">
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
             Nos services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Deux expertises, un objectif :{" "}
-            <span className="gradient-text">votre satisfaction</span>
+            <span className="gradient-text">votre performance</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Que vous souhaitiez un PC neuf parfaitement adapté ou optimiser votre machine actuelle, 
-            nous avons la solution.
+            nous avons la solution qui vous correspond.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Services Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {services.map((service, index) => (
-            <Card
-              key={index}
-              className="bg-card border-border card-hover cursor-pointer group"
-              onClick={() => scrollToSection(service.href)}
-            >
-              <CardContent className="p-8">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary" />
-                </div>
+            <AnimatedSection key={index} delay={index * 200}>
+              <Card className="bg-card border-border h-full group hover:border-primary/40 transition-all duration-500 overflow-hidden">
+                <CardContent className="p-8 md:p-10">
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-8 h-8 text-primary" />
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+                    {service.description}
+                  </p>
 
-                {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-sm bg-muted rounded-full text-muted-foreground"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
+                  {/* Features */}
+                  <ul className="space-y-4 mb-10">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* CTA */}
-                <div className="flex items-center text-primary font-medium group-hover:gap-3 gap-2 transition-all">
-                  En savoir plus
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </CardContent>
-            </Card>
+                  {/* CTA */}
+                  <Button
+                    onClick={() => scrollToSection(service.href)}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-semibold group/btn"
+                  >
+                    {service.cta}
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           ))}
         </div>
       </div>
