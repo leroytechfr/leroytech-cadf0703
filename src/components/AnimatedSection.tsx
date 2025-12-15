@@ -9,10 +9,10 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-const AnimatedSection = ({ children, className, animation = "fade-up", delay = 0 }: AnimatedSectionProps) => {
+function AnimatedSection({ children, className, animation = "fade-up", delay = 0 }: AnimatedSectionProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  const animationClasses = {
+  const animationClasses: Record<string, string> = {
     "fade-up": "translate-y-10 opacity-0",
     "fade-in": "opacity-0",
     "scale-in": "scale-95 opacity-0",
@@ -24,7 +24,7 @@ const AnimatedSection = ({ children, className, animation = "fade-up", delay = 0
 
   return (
     <div
-      ref={ref as React.RefObject<HTMLDivElement>}
+      ref={ref}
       className={cn(
         "transition-all duration-700 ease-out",
         isVisible ? visibleClasses : animationClasses[animation],
@@ -35,6 +35,6 @@ const AnimatedSection = ({ children, className, animation = "fade-up", delay = 0
       {children}
     </div>
   );
-};
+}
 
 export default AnimatedSection;

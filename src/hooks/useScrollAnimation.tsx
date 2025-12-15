@@ -6,9 +6,9 @@ interface UseScrollAnimationOptions {
   triggerOnce?: boolean;
 }
 
-export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
+export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -35,6 +35,4 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   }, [threshold, rootMargin, triggerOnce]);
 
   return { ref, isVisible };
-};
-
-export default useScrollAnimation;
+}
