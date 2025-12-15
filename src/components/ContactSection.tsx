@@ -23,16 +23,40 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://hook.eu2.make.com/rhdileh91cfgriy4usroao91fgfedi3f", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          nom: formData.name,
+          email: formData.email,
+          telephone: formData.phone,
+          formule: formData.formule,
+          sujet: formData.subject,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+        }),
+      });
 
-    toast({
-      title: "Message envoyé avec succès !",
-      description: "Nous vous répondrons dans les 24 à 48 heures.",
-    });
+      toast({
+        title: "Message envoyé avec succès !",
+        description: "Nous vous répondrons dans les 24 à 48 heures.",
+      });
 
-    setFormData({ name: "", email: "", phone: "", formule: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      setFormData({ name: "", email: "", phone: "", formule: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
