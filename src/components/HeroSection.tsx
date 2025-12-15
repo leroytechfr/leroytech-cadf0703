@@ -43,8 +43,8 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Montage de PC personnalisés et optimisation de vos machines existantes. 
-            Des solutions adaptées à vos besoins pour une expérience informatique fluide et performante.
+            Expert en montage PC sur mesure et optimisation système. 
+            Des machines taillées pour vos besoins, des performances à la hauteur de vos ambitions.
           </p>
 
           {/* CTA Buttons */}
