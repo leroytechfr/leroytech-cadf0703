@@ -10,6 +10,20 @@ const PricingSection = () => {
 
   const pricingPlans = [
     {
+      icon: Settings,
+      title: "Optimisation PC",
+      price: "70",
+      description: "Boostez les performances de votre PC actuel",
+      features: [
+        "Nettoyage logiciel complet",
+        "Optimisation Windows",
+        "Mise à jour des pilotes",
+        "Amélioration du démarrage",
+        "Intervention à distance possible",
+      ],
+      popular: true,
+    },
+    {
       icon: Monitor,
       title: "Montage Basique",
       price: "100",
@@ -35,20 +49,6 @@ const PricingSection = () => {
         "Configuration personnalisée",
       ],
       popular: false,
-    },
-    {
-      icon: Settings,
-      title: "Optimisation PC",
-      price: "70",
-      description: "Boostez les performances de votre PC actuel",
-      features: [
-        "Nettoyage logiciel complet",
-        "Optimisation Windows",
-        "Mise à jour des pilotes",
-        "Amélioration du démarrage",
-        "Intervention à distance possible",
-      ],
-      popular: true,
     },
   ];
 

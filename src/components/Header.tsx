@@ -18,6 +18,7 @@ const Header = () => {
     { href: "#services", label: "Services" },
     { href: "#montage", label: "Montage PC" },
     { href: "#optimisation", label: "Optimisation" },
+    { href: "#tarifs", label: "Tarifs" },
     { href: "#avantages", label: "Avantages" },
     { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Contact" },
