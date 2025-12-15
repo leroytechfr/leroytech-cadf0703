@@ -61,7 +61,7 @@ const OptimisationSection = () => {
   const results = [
     { label: "Démarrage plus rapide", before: "2-3 min", after: "30 sec" },
     { label: "Ouverture des apps", before: "Lent", after: "Instantané" },
-    { label: "FPS en jeu", before: "Instable", after: "+30-50%" },
+    { label: "FPS en jeu", before: "Instable", after: "Stable" },
     { label: "Freezes & bugs", before: "Fréquents", after: "Éliminés" },
   ];
 
