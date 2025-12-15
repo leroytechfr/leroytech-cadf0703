@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Send, Mail, MessageSquare, User, CheckCircle, Phone, MapPin } from "lucide-react";
+import { Send, Mail, MessageSquare, User, CheckCircle, Phone, MapPin, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import AnimatedSection from "./AnimatedSection";
 
@@ -13,6 +14,7 @@ const ContactSection = () => {
     name: "",
     email: "",
     phone: "",
+    formule: "",
     subject: "",
     message: "",
   });
@@ -29,7 +31,7 @@ const ContactSection = () => {
       description: "Nous vous répondrons dans les 24 à 48 heures.",
     });
 
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", formule: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
 
@@ -161,23 +163,45 @@ const ContactSection = () => {
                       />
                     </div>
 
-                    {/* Subject */}
+                    {/* Formule */}
                     <div className="space-y-2">
-                      <label htmlFor="subject" className="text-sm font-medium text-foreground flex items-center gap-2">
-                        <MessageSquare className="w-4 h-4 text-primary" />
-                        Sujet *
+                      <label htmlFor="formule" className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <Package className="w-4 h-4 text-primary" />
+                        Formule *
                       </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        placeholder="Montage PC / Optimisation..."
-                        value={formData.subject}
-                        onChange={handleChange}
+                      <Select
+                        value={formData.formule}
+                        onValueChange={(value) => setFormData((prev) => ({ ...prev, formule: value }))}
                         required
-                        className="bg-background border-border focus:border-primary h-12"
-                      />
+                      >
+                        <SelectTrigger className="bg-background border-border focus:border-primary h-12">
+                          <SelectValue placeholder="Choisissez une formule" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-card border-border">
+                          <SelectItem value="montage-basique">Montage Basique – 100€</SelectItem>
+                          <SelectItem value="montage-premium">Montage Premium – 150€</SelectItem>
+                          <SelectItem value="optimisation">Optimisation PC – 70€</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
+                  </div>
+
+                  {/* Subject */}
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-medium text-foreground flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4 text-primary" />
+                      Sujet *
+                    </label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      placeholder="Ex: Montage PC Gaming, Optimisation laptop..."
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      className="bg-background border-border focus:border-primary h-12"
+                    />
                   </div>
 
                   {/* Message */}
