@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Send, Mail, MessageSquare, User } from "lucide-react";
+import { Send, Mail, MessageSquare, User, CheckCircle, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import AnimatedSection from "./AnimatedSection";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -11,6 +12,7 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -23,11 +25,11 @@ const ContactSection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
+      title: "Message envoyé avec succès !",
+      description: "Nous vous répondrons dans les 24 à 48 heures.",
     });
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
 
@@ -40,122 +42,185 @@ const ContactSection = () => {
     }));
   };
 
+  const benefits = [
+    "Réponse garantie sous 24-48h",
+    "Devis personnalisé et gratuit",
+    "Aucun engagement de votre part",
+    "Conseils d'expert inclus",
+  ];
+
   return (
     <section id="contact" className="section-padding">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <span className="text-primary font-medium text-sm uppercase tracking-wider mb-4 block">
+          <AnimatedSection className="text-center mb-16">
+            <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">
               Contact
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Prêt à passer à l'action ?
+              Prêt à passer à <span className="gradient-text">l'action</span> ?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Décrivez-nous votre projet ou vos besoins. Nous vous répondons rapidement 
               avec une solution adaptée et un devis personnalisé.
             </p>
-          </div>
+          </AnimatedSection>
 
-          {/* Contact Form */}
-          <div className="bg-card rounded-2xl p-8 md:p-12 border border-border">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Name */}
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground flex items-center gap-2">
-                    <User className="w-4 h-4 text-muted-foreground" />
-                    Nom
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Votre nom"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="bg-background border-border focus:border-primary"
-                  />
-                </div>
+          <div className="grid lg:grid-cols-5 gap-12">
+            {/* Benefits Sidebar */}
+            <AnimatedSection className="lg:col-span-2" delay={100}>
+              <div className="bg-gradient-to-br from-primary/10 via-card to-accent/5 rounded-2xl p-8 border border-primary/20 h-full">
+                <h3 className="text-2xl font-bold text-foreground mb-8">
+                  Ce que vous obtenez
+                </h3>
+                <ul className="space-y-6">
+                  {benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                        <CheckCircle className="w-5 h-5 text-primary" />
+                      </div>
+                      <span className="text-foreground font-medium text-lg">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                {/* Email */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-muted-foreground" />
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="votre@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-background border-border focus:border-primary"
-                  />
+                <div className="mt-12 pt-8 border-t border-border/50">
+                  <h4 className="font-semibold text-foreground mb-4">Autres moyens de contact</h4>
+                  <div className="space-y-4">
+                    <a href="mailto:contact@leroytech.fr" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                      <Mail className="w-5 h-5" />
+                      <span>contact@leroytech.fr</span>
+                    </a>
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <MapPin className="w-5 h-5" />
+                      <span>France métropolitaine</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </AnimatedSection>
 
-              {/* Subject */}
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-muted-foreground" />
-                  Sujet
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  placeholder="Montage PC Gaming / Optimisation / Autre..."
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="bg-background border-border focus:border-primary"
-                />
+            {/* Contact Form */}
+            <AnimatedSection className="lg:col-span-3" delay={200}>
+              <div className="bg-card rounded-2xl p-8 md:p-10 border border-border">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <User className="w-4 h-4 text-primary" />
+                        Nom *
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Votre nom"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="bg-background border-border focus:border-primary h-12"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-primary" />
+                        Email *
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="votre@email.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="bg-background border-border focus:border-primary h-12"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Phone */}
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-primary" />
+                        Téléphone
+                      </label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="06 XX XX XX XX"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="bg-background border-border focus:border-primary h-12"
+                      />
+                    </div>
+
+                    {/* Subject */}
+                    <div className="space-y-2">
+                      <label htmlFor="subject" className="text-sm font-medium text-foreground flex items-center gap-2">
+                        <MessageSquare className="w-4 h-4 text-primary" />
+                        Sujet *
+                      </label>
+                      <Input
+                        id="subject"
+                        name="subject"
+                        type="text"
+                        placeholder="Montage PC / Optimisation..."
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        className="bg-background border-border focus:border-primary h-12"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Décrivez votre projet, vos besoins, votre budget approximatif..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className="bg-background border-border focus:border-primary resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-lg font-semibold glow-effect"
+                  >
+                    {isSubmitting ? (
+                      "Envoi en cours..."
+                    ) : (
+                      <>
+                        Envoyer ma demande
+                        <Send className="ml-2 w-5 h-5" />
+                      </>
+                    )}
+                  </Button>
+
+                  {/* Privacy note */}
+                  <p className="text-center text-sm text-muted-foreground">
+                    Vos données sont protégées et ne seront jamais partagées.
+                  </p>
+                </form>
               </div>
-
-              {/* Message */}
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Décrivez votre projet, vos besoins, votre budget..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="bg-background border-border focus:border-primary resize-none"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg glow-effect"
-              >
-                {isSubmitting ? (
-                  "Envoi en cours..."
-                ) : (
-                  <>
-                    Envoyer ma demande
-                    <Send className="ml-2 w-5 h-5" />
-                  </>
-                )}
-              </Button>
-            </form>
-
-            {/* Reassurance */}
-            <p className="text-center text-sm text-muted-foreground mt-6">
-              Réponse sous 24-48h • Devis gratuit et sans engagement
-            </p>
+            </AnimatedSection>
           </div>
         </div>
       </div>
