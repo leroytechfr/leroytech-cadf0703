@@ -30,19 +30,19 @@ const MontageSection = () => {
       icon: Cpu,
       step: "01",
       title: "Analyse des besoins",
-      description: "Nous échangeons sur votre utilisation et votre budget pour définir la meilleure configuration.",
+      description: "Nous échangeons sur votre utilisation et votre budget pour vous conseiller la meilleure configuration.",
     },
     {
       icon: HardDrive,
       step: "02",
-      title: "Sélection des composants",
-      description: "Choix minutieux des pièces pour un équilibre parfait entre performance et fiabilité.",
+      title: "Vous commandez vos pièces",
+      description: "Vous achetez les composants de votre choix. Nous vous guidons si besoin dans la sélection.",
     },
     {
       icon: Wrench,
       step: "03",
       title: "Montage complet",
-      description: "Assemblage soigné par nos experts avec une gestion optimale des câbles et du refroidissement.",
+      description: "Assemblage soigné avec une gestion optimale des câbles et du refroidissement.",
     },
     {
       icon: PlayCircle,
@@ -59,18 +59,18 @@ const MontageSection = () => {
     {
       icon: Package,
       step: "06",
-      title: "Livraison",
-      description: "Votre PC est livré prêt à l'emploi, avec toutes les explications nécessaires.",
+      title: "Récupération",
+      description: "Votre PC est prêt à l'emploi, avec toutes les explications nécessaires.",
     },
   ];
 
   const benefits = [
-    "Configuration 100% adaptée à vos besoins",
-    "Composants de qualité sélectionnés avec soin",
-    "Gain de temps : on s'occupe de tout",
+    "Conseils personnalisés pour vos composants",
+    "Vous choisissez et commandez vos pièces",
+    "Montage professionnel et soigné",
     "PC testé et garanti fonctionnel",
-    "Support et conseils personnalisés",
-    "Rapport qualité/prix optimisé",
+    "Support et accompagnement",
+    "Tarif montage transparent",
   ];
 
   const scrollToContact = () => {
@@ -89,8 +89,8 @@ const MontageSection = () => {
             Un PC conçu <span className="gradient-text">spécialement pour vous</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Oubliez les configurations standardisées. Nous créons le PC qui correspond exactement 
-            à vos besoins, votre budget et vos ambitions.
+            Vous choisissez et commandez vos composants, nous nous occupons du montage. 
+            Un PC parfaitement adapté à vos besoins et votre budget.
           </p>
         </AnimatedSection>
 
@@ -149,8 +149,8 @@ const MontageSection = () => {
                   Pourquoi choisir le sur-mesure ?
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  Un PC monté sur mesure vous garantit exactement les performances dont vous avez besoin, 
-                  sans payer pour des fonctionnalités inutiles. C'est l'assurance d'un investissement intelligent.
+                  Vous gardez le contrôle sur le choix et l'achat de vos composants, tout en bénéficiant 
+                  d'un montage professionnel et de conseils experts pour votre configuration.
                 </p>
                 <Button
                   onClick={scrollToContact}
