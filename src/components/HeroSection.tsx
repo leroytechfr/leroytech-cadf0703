@@ -91,7 +91,7 @@ const HeroSection = () => {
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <Shield className="w-6 h-6 text-primary" />
               </div>
-              <span className="text-2xl md:text-3xl font-bold text-foreground">5 ans</span>
+              <span className="text-2xl md:text-3xl font-bold text-foreground">2 ans</span>
               <span className="text-sm text-muted-foreground">Garantie</span>
             </div>
             <div className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm">
