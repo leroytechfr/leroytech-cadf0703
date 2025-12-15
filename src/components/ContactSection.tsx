@@ -24,6 +24,12 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      const formuleLabels: Record<string, string> = {
+        "montage-basique": "Montage Basique – 100€",
+        "montage-premium": "Montage Premium – 150€",
+        "optimisation": "Optimisation PC – 70€",
+      };
+
       const response = await fetch("https://hook.eu2.make.com/rhdileh91cfgriy4usroao91fgfedi3f", {
         method: "POST",
         headers: {
@@ -34,10 +40,9 @@ const ContactSection = () => {
           nom: formData.name,
           email: formData.email,
           telephone: formData.phone,
-          formule: formData.formule,
+          formule: formuleLabels[formData.formule] || formData.formule,
           sujet: formData.subject,
           message: formData.message,
-          timestamp: new Date().toISOString(),
         }),
       });
 
