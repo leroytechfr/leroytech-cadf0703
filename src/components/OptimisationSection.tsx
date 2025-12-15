@@ -47,8 +47,8 @@ const OptimisationSection = () => {
     {
       icon: Clock,
       title: "Intervention rapide",
-      description: "Optimisation complète en 2 à 4 heures maximum.",
-      stat: "2-4h",
+      description: "Optimisation complète en 30 minutes à 1 heure maximum.",
+      stat: "30min-1h",
     },
     {
       icon: Wifi,
