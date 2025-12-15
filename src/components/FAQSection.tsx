@@ -9,12 +9,12 @@ import AnimatedSection from "./AnimatedSection";
 const FAQSection = () => {
   const faqs = [
     {
-      question: "Combien coûte un PC sur mesure ?",
-      answer: "Le prix varie selon vos besoins et votre budget. Nous proposons des configurations à partir de 600€ pour un PC bureautique, 900€ pour un PC gaming entrée de gamme, et jusqu'à plusieurs milliers d'euros pour des stations de travail professionnelles. Chaque devis est personnalisé et gratuit.",
+      question: "Comment fonctionne le service de montage ?",
+      answer: "C'est simple : vous commandez vous-même les composants de votre choix (nous pouvons vous conseiller sur la configuration), puis vous nous les confiez pour le montage. Nous assemblons le PC, installons Windows et les pilotes, effectuons les tests, et vous récupérez votre machine prête à l'emploi.",
     },
     {
       question: "Quel est le délai de montage d'un PC ?",
-      answer: "Une fois les composants reçus, le montage complet (assemblage, installation système, tests) prend généralement 2 à 5 jours ouvrés. Le délai total dépend de la disponibilité des pièces sélectionnées.",
+      answer: "Une fois que vous nous avez confié vos composants, le montage complet (assemblage, installation système, tests) prend généralement 2 à 5 jours ouvrés.",
     },
     {
       question: "L'optimisation PC efface-t-elle mes données ?",

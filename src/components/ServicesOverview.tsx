@@ -8,15 +8,15 @@ const ServicesOverview = () => {
     {
       icon: Monitor,
       title: "Montage de PC sur mesure",
-      description: "Un PC conçu spécialement pour vous. Gaming, bureautique ou professionnel, nous assemblons la configuration idéale selon vos besoins et votre budget.",
+      description: "Vous commandez vos composants, nous nous occupons du montage. Gaming, bureautique ou professionnel, bénéficiez d'un assemblage professionnel.",
       href: "#montage",
       features: [
-        "Configuration personnalisée",
-        "Composants premium",
+        "Conseils pour vos composants",
+        "Vous achetez vos pièces",
+        "Montage professionnel",
         "Tests complets inclus",
-        "Livré prêt à l'emploi",
       ],
-      cta: "Configurer mon PC",
+      cta: "En savoir plus",
     },
     {
       icon: Settings,
