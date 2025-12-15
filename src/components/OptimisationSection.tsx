@@ -1,4 +1,4 @@
-import { Settings, Trash2, Rocket, Gamepad2, RefreshCw, Bug, Check, Zap, Shield, Clock, Wifi, ArrowRight } from "lucide-react";
+import { Settings, Trash2, Rocket, Gamepad2, RefreshCw, Bug, Check, Shield, Clock, Wifi, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
@@ -38,12 +38,6 @@ const OptimisationSection = () => {
   ];
 
   const advantages = [
-    {
-      icon: Zap,
-      title: "Gain immédiat",
-      description: "Des performances améliorées dès la fin de l'intervention.",
-      stat: "+40%",
-    },
     {
       icon: Shield,
       title: "Aucun risque",
@@ -94,7 +88,7 @@ const OptimisationSection = () => {
         </AnimatedSection>
 
         {/* Advantages with Stats */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-3 gap-6 mb-20">
           {advantages.map((item, index) => (
             <AnimatedSection key={index} delay={index * 100}>
               <div className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group h-full">
