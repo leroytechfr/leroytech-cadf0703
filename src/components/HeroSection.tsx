@@ -34,7 +34,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-in backdrop-blur-sm">
             <Cpu className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold text-primary tracking-wide">Spécialiste PC sur mesure depuis 2020</span>
+            <span className="text-sm font-semibold text-primary tracking-wide">Montage & Optimisation PC</span>
           </div>
 
           {/* Main Title */}
