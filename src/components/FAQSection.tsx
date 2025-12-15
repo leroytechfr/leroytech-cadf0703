@@ -26,7 +26,7 @@ const FAQSection = () => {
     },
     {
       question: "Offrez-vous une garantie sur vos services ?",
-      answer: "Oui. Les PC montés bénéficient de la garantie constructeur sur chaque composant (généralement 2 à 5 ans). Pour l'optimisation, nous garantissons le résultat : si vous n'êtes pas satisfait, nous intervenons à nouveau gratuitement.",
+      answer: "Oui. Les PC montés bénéficient de la garantie constructeur de 2 ans sur chaque composant. Pour l'optimisation, nous garantissons le résultat : si vous n'êtes pas satisfait, nous intervenons à nouveau gratuitement.",
     },
     {
       question: "Quels types de PC montez-vous ?",
