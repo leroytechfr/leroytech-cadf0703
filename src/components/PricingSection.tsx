@@ -34,7 +34,7 @@ const PricingSection = () => {
         "Tests de performance étendus",
         "Configuration personnalisée",
       ],
-      popular: true,
+      popular: false,
     },
     {
       icon: Settings,
@@ -48,7 +48,7 @@ const PricingSection = () => {
         "Amélioration du démarrage",
         "Intervention à distance possible",
       ],
-      popular: false,
+      popular: true,
     },
   ];
 
